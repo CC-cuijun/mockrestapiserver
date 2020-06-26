@@ -1,0 +1,12 @@
+{
+    "status": 200,
+    "message": "创建/绑定品牌成功",
+    "messageId": "34356be6-f6c6-4873-84c8-03eaae93c266",
+    "content": {
+        "commercialConfig": {
+            "brandId": "222222",
+            "parentId": "123457",
+            "brandName": "测试公司1"
+        }
+    }
+}

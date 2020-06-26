@@ -1,0 +1,14 @@
+{
+   "brand1" : {
+      "name" : "Haier",
+      "id": 1
+   },
+   "brand2" : {
+      "name" : "starbucks",
+      "id": 2
+   },
+   "brand3" : {
+      "name" : "Nike",
+      "id": 3
+   }
+}

@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "brandId": 123,
+      "outContractInfoList": [
+        {
+          "outContractNo": "123",
+          "outContractChannel": "KERUYUN",
+          "outContractMasterId": "123",
+          "outContractMasterType": "1",
+          "outContractProductCode": "",
+          "outContractStatus": "AD",
+          "extInfo": {
+            "contractStartTime": "12300000000",
+            "contractEndTime": "12400000000"
+          },
+          "creator": "1",
+          "modifier": "123",
+          "gmtCreate": 1591149681030,
+          "gmtModified": 1591149681030
+        }
+      ]
+    }
+  ],
+  "message": null,
+  "code": 200,
+  "success": true
+}
