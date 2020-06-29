@@ -15,6 +15,7 @@ app.post('/listBindBrands', function (req, res) {
         console.log( data );
         res.send( data );
     });*/
+    //数据结构根据需求自定义
     let data = {
         "success": false,
         "code": 1001,
@@ -24,6 +25,7 @@ app.post('/listBindBrands', function (req, res) {
                 "result": false,
                 "code": 200,
                 "msg": "null",
+                //根据实际data进行替换
                 "data": req.body.user1
             }
         },
@@ -34,7 +36,8 @@ app.post('/listBindBrands', function (req, res) {
 //模拟get请求
 app.get('/getsyncstatus', function (req, res) {
     fs.readFile( __dirname + "/resdata/" + "syncstatusres.json", 'utf8', function (err, data) {
-        console.log( data );
+        // console.log( data );
+        //返回数据
         res.send( data );
     });
 })
@@ -43,7 +46,8 @@ app.get('/getbrandlist/:id', function (req, res) {
     fs.readFile( __dirname + "/resdata/" + "brandlist.json", 'utf8', function (err, data) {
         data = JSON.parse( data );
         var brand = data["brand" + req.params.id]
-        console.log( brand );
+        // console.log( brand );
+        //返回指定id数据
         res.send( JSON.stringify(brand));
     });
 })
@@ -51,25 +55,47 @@ app.get('/getbrandlist/:id', function (req, res) {
 app.post('/updateOrganization', function (req, res) {
     console.log(req.body)
     fs.readFile( __dirname + "/resdata/" + "updatestatusres.json", 'utf8', function (err, data) {
-        console.log( data );
+        // console.log( data );
+        //返回数据
         res.send( data );
     });
 });
 
-//模拟删除，不会真正删除数据
+//模拟get删除
 app.get('/deleteUser/:id', function (req, res) {
 
-   // First read existing users.
    fs.readFile( __dirname + "/resdata/" + "users.json", 'utf8', function (err, data) {
        data = JSON.parse( data );
        delete data["user" + req.params.id];
-       console.log( data );
+       // console.log( data );
+       //返回最新数据
        res.end( JSON.stringify(data));
    });
 })
 
 //模拟put请求
+app.put('/updateUser/:id', function (req, res) {
+
+    fs.readFile( __dirname + "/resdata/" + "users.json", 'utf8', function (err, data) {
+        data = JSON.parse( data );
+        data["user" + req.params.id] = req.body
+        // console.log( data );
+        //返回最新数据
+        res.end( JSON.stringify(data));
+    });
+})
 //模拟delete请求
+app.delete('/deleteUser/:id', function (req, res) {
+
+    fs.readFile( __dirname + "/resdata/" + "users.json", 'utf8', function (err, data) {
+        data = JSON.parse( data );
+        delete data["user" + req.params.id];
+        // console.log( data );
+        //返回最新数据
+        res.end( JSON.stringify(data));
+    });
+})
+
 
 const PORT = process.env.PORT || 8001;
 server.listen(PORT);
