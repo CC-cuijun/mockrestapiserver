@@ -24,7 +24,7 @@ app.post('/listBindBrands', function (req, res) {
                 "result": false,
                 "code": 200,
                 "msg": "null",
-                "data": req.body.brandcode
+                "data": req.body.user1
             }
         },
         "data": null
@@ -55,6 +55,19 @@ app.post('/updateOrganization', function (req, res) {
         res.send( data );
     });
 });
+
+//模拟删除，不会真正删除数据
+app.get('/deleteUser/:id', function (req, res) {
+
+   // First read existing users.
+   fs.readFile( __dirname + "/resdata/" + "users.json", 'utf8', function (err, data) {
+       data = JSON.parse( data );
+       delete data["user" + req.params.id];
+       console.log( data );
+       res.end( JSON.stringify(data));
+   });
+})
+
 //模拟put请求
 //模拟delete请求
 
